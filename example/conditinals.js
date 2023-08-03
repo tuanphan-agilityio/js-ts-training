@@ -9,4 +9,5 @@ if (score >= 90) {
   grade = 'F';
 }
 
+// eslint-disable-next-line no-console
 console.log('Your grade is:', grade); // Your grade is: B

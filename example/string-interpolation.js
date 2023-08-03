@@ -4,4 +4,5 @@ const quantity = 8;
 
 const total = pricePerUnit * quantity;
 
+// eslint-disable-next-line no-console
 console.log(`You bought ${quantity} ${product}s for a total of $${total}.`); // You bought 8 Bananas for a total of $9.6.
