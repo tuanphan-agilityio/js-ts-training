@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DOM</title>
+    <style>
+      .container {
+        display: flex;
+      }
+      .box {
+        width: 140px;
+        height: 140px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+        margin: 10px;
+      }
+      .highlight {
+        background-color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box" id="box1">Box 1</div>
+      <div class="box" id="box2">Box 2</div>
+      <div class="box" id="box3">Box 3</div>
+    </div>
+  </body>
+  <script>
+    // Querying and Modifying the DOM
+    const box1 = document.getElementById('box1');
+    const box2 = document.getElementById('box2');
+    const box3 = document.getElementById('box3');
+
+    box1.style.backgroundColor = 'lightcoral';
+    box2.textContent = 'Modified Box 2';
+    box3.classList.add('highlight');
+
+    // Event Handling with Bubbling and Capturing
+    box1.addEventListener('click', function (event) {
+      console.log('Box 1 clicked (Bubbling)');
+    });
+
+    box2.addEventListener('click', function (event) {
+      console.log('Box 2 clicked (Bubbling)');
+    });
+
+    const container = document.querySelector('.container');
+    container.addEventListener(
+      'click',
+      function (event) {
+        console.log('Container clicked (Bubbling)');
+      },
+      false,
+    ); // Bubbling phase
+
+    container.addEventListener(
+      'click',
+      function (event) {
+        console.log('Container clicked (Capturing)');
+      },
+      true,
+    ); // Capture phase
+
+    // Event Delegation
+    container.addEventListener('click', function (event) {
+      const clickedBox = event.target;
+      if (clickedBox.classList.contains('box')) {
+        console.log('Box clicked using Event Delegation:', clickedBox.textContent);
+      }
+    });
+  </script>
+</html>
