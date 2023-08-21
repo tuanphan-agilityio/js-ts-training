@@ -1,12 +1,12 @@
 {
   "name": "javascript-training",
   "version": "1.0.0",
-  "main": "index.js",
+  "source": "src/pages/index.html",
   "repository": "git@gitlab.asoft-python.com:tuan.phan/javascript-training.git",
   "author": "Tuan Quoc Phan <tuan.phan@asnet.com.vn>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
+    "start": "rm -rf dist && rm -rf .parcel-cache && parcel",
     "prepare": "husky install"
   },
   "devDependencies": {
