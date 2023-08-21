@@ -4,13 +4,13 @@
     "module": "commonjs",
     "lib": ["es6"],
     "outDir": "./build",
-    "rootDir": "./example-ts",
+    "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "noEmitOnError": true,
     "experimentalDecorators": true
   },
-  "include": ["example-ts/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
