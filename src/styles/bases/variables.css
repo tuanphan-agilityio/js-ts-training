@@ -9,6 +9,8 @@
   --color-gray: #acacac;
   --color-dark-gray: #6c6c6c;
   --color-light-gray: #e5e5e5;
+  --color-soft-gray: #cdcdcd;
+  --color-error: #de350b;
 
   /* Font size */
   --font-size-sm: 12px;
