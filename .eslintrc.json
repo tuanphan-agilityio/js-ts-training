@@ -10,6 +10,10 @@
   "rules": {
     "prettier/prettier": ["error"],
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
-  }
+    "@typescript-eslint/no-shadow": ["error"],
+    "import/extensions": "off",
+    "import/no-unresolved": "off"
+  },
+
+  "ignorePatterns": ["dist"]
 }

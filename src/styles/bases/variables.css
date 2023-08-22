@@ -1,0 +1,26 @@
+/* CSS variables */
+
+:root {
+  /* Color */
+  --color-primary: #feaf00;
+  --color-secondary: #f2eae1;
+  --color-light: #fff;
+  --color-dark: #000;
+  --color-gray: #acacac;
+  --color-dark-gray: #6c6c6c;
+  --color-light-gray: #e5e5e5;
+
+  /* Font size */
+  --font-size-sm: 12px;
+  --font-size-md: 14px;
+  --font-size-xl: 16px;
+  --font-size-2xl: 18px;
+  --font-size-3xl: 20px;
+  --font-size-4xl: 22px;
+  --font-size-5xl: 30px;
+
+  /* Font weight */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
