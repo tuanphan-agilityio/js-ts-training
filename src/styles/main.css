@@ -3,3 +3,10 @@
 @import url('../styles/bases/typography.css');
 @import url('../styles/bases/variables.css');
 @import url('../styles/bases/global.css');
+
+/* COMPONENTS */
+@import url('../styles/components/button.css');
+@import url('../styles/components/input.css');
+
+/* PAGES */
+@import url('../styles/pages/sign-in.css');

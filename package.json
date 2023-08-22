@@ -1,13 +1,12 @@
 {
   "name": "javascript-training",
   "version": "1.0.0",
-  "source": "src/pages/index.html",
   "repository": "git@gitlab.asoft-python.com:tuan.phan/javascript-training.git",
   "author": "Tuan Quoc Phan <tuan.phan@asnet.com.vn>",
   "license": "MIT",
   "scripts": {
     "prepare": "husky install",
-    "start": "rm -rf dist && rm -rf .parcel-cache && parcel",
+    "start": "rm -rf dist && rm -rf .parcel-cache && parcel src/pages/*.html",
     "start:server": "json-server server/db.json -m ./node_modules/json-server-auth"
   },
   "devDependencies": {
