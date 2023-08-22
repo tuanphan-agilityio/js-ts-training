@@ -6,8 +6,9 @@
   "author": "Tuan Quoc Phan <tuan.phan@asnet.com.vn>",
   "license": "MIT",
   "scripts": {
+    "prepare": "husky install",
     "start": "rm -rf dist && rm -rf .parcel-cache && parcel",
-    "prepare": "husky install"
+    "start:server": "json-server server/db.json -m ./node_modules/json-server-auth"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -23,7 +24,13 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "husky": "^8.0.3",
+    "json-server": "^0.17.3",
+    "json-server-auth": "^2.1.0",
+    "parcel": "^2.9.3",
     "prettier": "^3.0.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
   }
 }
