@@ -1,0 +1,37 @@
+.toast {
+  position: fixed;
+  top: 40px;
+  right: 50%;
+  display: flex;
+  padding: 16px;
+  transform: translateX(50%);
+  width: fit-content;
+  border-radius: 6px;
+  background-color: var(--color-light-gray);
+}
+
+.toast-icon {
+  margin-right: 24px;
+  width: 16px;
+  height: 16px;
+}
+
+.toast-message {
+  font-size: var(--font-size-xl);
+}
+
+.toast-success .toast-message {
+  color: var(--color-success);
+}
+
+.toast-error .toast-message {
+  color: var(--color-error);
+}
+
+.toast-success .toast-icon {
+  background-image: url('../../assets/icons/success.svg');
+}
+
+.toast-error .toast-icon {
+  background-image: url('../../assets/icons/error.svg');
+}
