@@ -1,10 +1,8 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 
-import { STORAGE_KEYS } from '@/constants';
+import { SERVICE_TIMEOUT, STORAGE_KEYS } from '@/constants';
 import { LocalStorage } from '@/utils';
 import { handleFulfilled, handleRejected } from './utils';
-
-const SERVICE_TIMEOUT = 10 * 60 * 1000;
 
 const instance: AxiosInstance = axios.create({
   baseURL: process.env.API_URL,

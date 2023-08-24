@@ -1,5 +1,3 @@
-import { STORAGE_KEYS } from '@/constants';
-
 class LocalStorage {
   /**
    * Save data to Local Storage.
@@ -27,14 +25,6 @@ class LocalStorage {
    */
   static remove(key: string): void {
     localStorage.removeItem(key);
-  }
-
-  /**
-   * Check isAuthenticated from Local Storage.
-   * @returns boolean
-   */
-  static isAuthenticated(): boolean {
-    return !!localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN_KEY);
   }
 }
 

@@ -1,0 +1,3 @@
+const SERVICE_TIMEOUT = 10 * 60 * 1000;
+
+export { SERVICE_TIMEOUT };
