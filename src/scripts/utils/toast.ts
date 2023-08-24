@@ -1,5 +1,5 @@
 import { MessageStatus } from '@/types';
-import { createElement, getElementById } from '..';
+import { createElement, getElementById } from '.';
 
 class Toast {
   private static readonly TOAST_LIFETIME = 3000;
