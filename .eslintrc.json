@@ -15,7 +15,8 @@
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
   },
 
   "ignorePatterns": ["dist"]
