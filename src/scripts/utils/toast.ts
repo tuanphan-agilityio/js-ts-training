@@ -38,7 +38,7 @@ class Toast {
    * @param message - The message to be displayed in the toast.
    */
   show(type: MessageStatus, message: string): void {
-    const mainElement = getElementById('main-page');
+    const mainElement = getElementById('site-main');
     const toastElement = this.createToastElement(type, message);
 
     this.removeToastAfterTimeout(toastElement);
