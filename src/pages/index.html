@@ -5,10 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/main.css" />
     <meta name="description" content="Project management" />
-    <title>Projects</title>
+    <title>Dashboard</title>
   </head>
   <body>
-    <h1>Practice</h1>
+    <div id="site-main" class="content-wrapper">
+      <aside class="sidebar">
+        <h1 class="sidebar-logo">Project Management</h1>
+        <div class="sidebar-info">
+          <div class="sidebar-avatar-wrapper">
+            <img
+              class="sidebar-avatar"
+              src="https://dummyimage.com/200x200/000/fff.jpg"
+              alt="Avatar"
+            />
+          </div>
+          <p class="profile-name">Karthi Madesh</p>
+          <p class="profile-role">Admin</p>
+        </div>
+
+        <div class="sidebar-control">
+          <nav>
+            <ul class="sidebar-nav-list">
+              <li>
+                <a href="/" class="sidebar-nav-item nav-item-active">
+                  <span class="nav-icon-wrapper">
+                    <svg class="home-icon">
+                      <use xlink:href="../assets/icons/home.svg#small"></use>
+                    </svg>
+                  </span>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="/projects" class="sidebar-nav-item">
+                  <span class="nav-icon-wrapper">
+                    <svg class="project-icon">
+                      <use xlink:href="../assets/icons/project.svg#small"></use>
+                    </svg>
+                  </span>
+                  Projects
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <button class="sidebar-logout">Logout <i class="logout-icon"></i></button>
+        </div>
+      </aside>
+
+      <main class="main-page">
+        <header class="main-header">
+          <div class="header-search">
+            <input class="header-search-input" type="text" placeholder="Search..." />
+            <i class="search-icon header-icon"></i>
+          </div>
+
+          <div>
+            <i class="bell-icon header-icon"></i>
+          </div>
+        </header>
+
+        <div class="container dashboard-container">
+          <div class="card-list">
+            <section class="card-item card-project">
+              <svg class="project-icon card-project-icon">
+                <use xlink:href="../assets/icons/project.svg#large"></use>
+              </svg>
+              <p class="card-title">Project</p>
+              <p class="card-quantity">243</p>
+            </section>
+
+            <section class="card-item card-course">
+              <svg class="project-icon card-course-icon">
+                <use xlink:href="../assets/icons/course.svg#large"></use>
+              </svg>
+              <p class="card-title">Course</p>
+              <p class="card-quantity">13</p>
+            </section>
+
+            <section class="card-item card-payment">
+              <svg class="project-icon card-payment-icon">
+                <use xlink:href="../assets/icons/payment.svg#large"></use>
+              </svg>
+              <p class="card-title">Payments</p>
+              <p class="card-quantity">$556,000</p>
+            </section>
+
+            <section class="card-item card-user">
+              <svg class="project-icon card-user-icon">
+                <use xlink:href="../assets/icons/user.svg#large"></use>
+              </svg>
+              <p class="card-title">Payments</p>
+              <p class="card-quantity">3</p>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 
   <script type="module" src="../scripts/main.ts" defer></script>

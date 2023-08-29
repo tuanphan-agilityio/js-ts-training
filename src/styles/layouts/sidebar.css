@@ -1,0 +1,115 @@
+.sidebar {
+  padding: 18px 38px 32px;
+  width: 270px;
+  height: 100vh;
+  background-color: var(--color-secondary);
+}
+
+.sidebar-logo {
+  position: relative;
+  text-transform: uppercase;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.sidebar-logo::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -12px;
+  width: 4px;
+  height: 24px;
+  background-color: var(--color-primary);
+}
+
+.sidebar-info {
+  margin-top: 26px;
+}
+
+.sidebar-avatar-wrapper {
+  margin: 0 auto;
+  width: 156px;
+  height: 156px;
+}
+
+.sidebar-avatar {
+  border-radius: 50%;
+}
+
+.profile-name {
+  margin-top: 22px;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.profile-role {
+  margin-top: 8px;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.sidebar-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 64px;
+  height: calc(100% - 360px);
+}
+
+.sidebar-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 10px 44px;
+  border-radius: 4px;
+  color: var(--color-dark);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+}
+
+.nav-item-active {
+  background-color: var(--color-primary);
+}
+
+.nav-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  width: 20px;
+  height: 100%;
+}
+
+.project-icon {
+  width: 13px;
+  height: 15px;
+}
+
+.home-icon {
+  width: 19px;
+  height: 17px;
+}
+
+.sidebar-logout {
+  background: transparent;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+.logout-icon {
+  display: inline-block;
+  vertical-align: text-top;
+  margin-left: 22px;
+  width: 17px;
+  height: 17px;
+  background-image: url('../../assets/icons/logout.svg');
+}

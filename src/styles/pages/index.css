@@ -1,0 +1,68 @@
+.dashboard-container {
+  padding: 0 30px;
+}
+
+.card-list {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  width: 255px;
+  height: 157px;
+  border-radius: 8px;
+}
+
+.card-title {
+  color: var(--color-dark-gray);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.card-quantity {
+  text-align: end;
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.card-project {
+  background: var(--color-soft-blue);
+}
+
+.card-course {
+  background: var(--color-soft-pink);
+}
+
+.card-payment {
+  background: var(--color-soft-yellow);
+}
+
+.card-user {
+  background: linear-gradient(134deg, #feaf00 0%, #f8d442 100%);
+}
+
+.card-project-icon {
+  width: 28px;
+  height: 35px;
+}
+
+.card-course-icon {
+  width: 48px;
+  height: 29px;
+}
+
+.card-payment-icon {
+  width: 35px;
+  height: 40px;
+}
+
+.card-user-icon {
+  width: 34px;
+  height: 34px;
+}

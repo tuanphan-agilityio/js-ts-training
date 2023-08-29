@@ -1,0 +1,11 @@
+.content-wrapper {
+  display: flex;
+}
+
+.main-page {
+  width: calc(100% - 270px);
+}
+
+.container {
+  max-height: calc(100% - 60px);
+}
