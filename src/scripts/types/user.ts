@@ -3,6 +3,7 @@ interface User {
   fullName: string;
   email: string;
   avatar: string;
+  role: string;
 }
 
 interface UserSignIn {
