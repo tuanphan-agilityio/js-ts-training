@@ -10,7 +10,7 @@
   font-weight: var(--font-weight-medium);
 }
 
-.table-head tr th {
+.table-header {
   padding: 6px 8px;
   text-align: start;
 }
@@ -21,14 +21,14 @@
   border-radius: 8px;
 }
 
-.table-row td {
+.table-data {
   padding: 14px 8px;
 }
 
-.table-row td:first-child {
+.table-data:first-child {
   border-radius: 10px 0 0 10px;
 }
 
-.table-row td:last-child {
+.table-data:last-child {
   border-radius: 0 10px 10px 0;
 }

@@ -29,12 +29,12 @@
 }
 
 /* Cell */
-.cell-project-logo {
+.project-logo-img {
   width: 54px;
   height: 54px;
 }
 
-.cell-project-manager {
+.project-manager-img {
   width: 24px;
   height: 24px;
   border-radius: 50%;
