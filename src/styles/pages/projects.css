@@ -1,0 +1,29 @@
+.projects-container {
+  padding: 0 20px 20px 30px;
+  background-color: var(--color-light-smoke);
+}
+
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 68px;
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.projects-header-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.projects-filter-status {
+  margin-right: 54px;
+  height: 44px;
+  border: none;
+  outline: none;
+  border-right: 16px solid transparent;
+}
+
+.status-option {
+  background-color: var(--color-light);
+}

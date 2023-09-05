@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <meta name="description" content="Project management" />
+    <title>Projects</title>
+  </head>
+  <body>
+    <div id="site-main" class="content-wrapper">
+      <aside class="sidebar"></aside>
+
+      <main class="main-page">
+        <header class="main-header">
+          <div class="header-search">
+            <input class="header-search-input" type="text" placeholder="Search..." />
+            <i class="search-icon header-icon"></i>
+          </div>
+
+          <div>
+            <i class="bell-icon header-icon"></i>
+          </div>
+        </header>
+
+        <div class="container projects-container">
+          <section class="projects-header">
+            <h2 class="projects-header-title">Project List</h2>
+            <div class="project-header-control">
+              <span>Filter by status</span>
+              <select name="status" class="btn projects-filter-status" id="filter-status">
+                <option class="status-option" value="" selected="selected">All</option>
+                <option class="status-option" value="in-progress">In-progress</option>
+                <option class="status-option" value="completed">Completed</option>
+                <option class="status-option" value="cancelled">Cancelled</option>
+              </select>
+              <a class="btn" href="project-create-update">Add new project</a>
+            </div>
+          </section>
+
+          <!--TODO: Add table here-->
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <script type="module" src="../scripts/main.ts" defer></script>
+</html>
