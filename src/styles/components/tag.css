@@ -1,0 +1,19 @@
+/* Tag */
+.tag {
+  padding: 4px 6px;
+  width: fit-content;
+  text-align: center;
+  color: var(--color-light);
+}
+
+.tag-in-progress {
+  background-color: var(--color-info);
+}
+
+.tag-completed {
+  background-color: var(--color-success);
+}
+
+.tag-cancelled {
+  background-color: var(--color-dark-gray);
+}
