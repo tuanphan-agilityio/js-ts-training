@@ -27,3 +27,38 @@
 .status-option {
   background-color: var(--color-light);
 }
+
+/* Cell */
+.project-logo-img {
+  width: 54px;
+  height: 54px;
+}
+
+.project-manager-img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.delete-icon {
+  display: inline-block;
+  width: 17.658px;
+  height: 18px;
+  background-image: url('../../assets/icons/trash.svg');
+}
+
+.edit-icon {
+  display: inline-block;
+  width: 20.968px;
+  height: 19px;
+  background-image: url('../../assets/icons/pen.svg');
+}
+
+.btn-action {
+  cursor: pointer;
+}
+
+.btn-action:not(:last-child) {
+  margin-right: 36px;
+}
