@@ -1,6 +1,6 @@
 const ROUTES = {
   DASHBOARD: '/',
-  PROJECTS: '/project',
+  PROJECTS: '/projects',
   SIGN_IN: '/sign-in',
 };
 

@@ -2,7 +2,7 @@
   padding: 12px 20px;
   border-radius: 4px;
   background-color: var(--color-primary);
-  color: var(--color-light);
+  color: var(--color-dark);
   font-weight: var(--font-weight-medium);
   cursor: pointer;
 }
