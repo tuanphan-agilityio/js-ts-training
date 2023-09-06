@@ -1,4 +1,53 @@
 {
   "users": [],
-  "projects": []
+  "projects": [
+    {
+      "id": 1,
+      "name": "Project A",
+      "client": "Amazon",
+      "projectManagerId": "2",
+      "teamMemberIds": ["1", "2"],
+      "status": "completed",
+      "startDate": "2023-09-05",
+      "endDate": "2023-09-09",
+      "logo": "https://picsum.photos/200/300",
+      "description": "Project A is a project"
+    },
+    {
+      "id": 2,
+      "name": "Project B",
+      "client": "Google",
+      "projectManagerId": "1",
+      "teamMemberIds": ["1", "2"],
+      "status": "in-progress",
+      "startDate": "2023-09-05",
+      "endDate": "2023-09-09",
+      "logo": "https://picsum.photos/200/300",
+      "description": "Project B is a project"
+    }
+  ],
+  "projectManagers": [
+    {
+      "id": 1,
+      "name": "Manager A"
+    },
+    {
+      "id": 2,
+      "name": "Manager B"
+    },
+    {
+      "id": 3,
+      "name": "Manager C"
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "name": "Member A"
+    },
+    {
+      "id": 2,
+      "name": "Member B"
+    }
+  ]
 }
