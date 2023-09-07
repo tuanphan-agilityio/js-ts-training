@@ -4,4 +4,8 @@ const MESSAGES = {
   HANDLE_SUCCESS: (field: string) => `${field} is successfully`,
 };
 
-export { MESSAGES };
+const CONFIRM_MESSAGES = {
+  DELETE_PROJECT: 'Do you want to delete this project?',
+};
+
+export { MESSAGES, CONFIRM_MESSAGES };

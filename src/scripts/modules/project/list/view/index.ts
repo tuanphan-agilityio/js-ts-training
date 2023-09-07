@@ -1,6 +1,6 @@
 import { getProductTableTemplate } from '@/templates';
 import { ProjectItem } from '@/types';
-import { querySelector } from '@/utils';
+import { querySelector, querySelectorAll } from '@/utils';
 
 /**
  * View class responsible for rendering and handling project list-related UI.
@@ -23,6 +23,32 @@ class ProjectListView {
    */
   renderProjectList(projectList: ProjectItem[]): void {
     this.tableElement.innerHTML = getProductTableTemplate(projectList);
+  }
+
+  /**
+   * Binds a delete event handler to the delete button.
+   *
+   * @param {Function} handler - The delete event handler function.
+   */
+  bindDeleteEvent = (handler: (id: number) => void) => {
+    const buttonDeleteElements = querySelectorAll<HTMLButtonElement>('.btn-delete-project');
+
+    buttonDeleteElements.forEach((element: HTMLButtonElement) => {
+      element.addEventListener('click', () => {
+        const projectId = this.getProjectIdFromElement(element);
+        handler(projectId);
+      });
+    });
+  };
+
+  /**
+   * Extracts the project ID from the button's data attribute.
+   *
+   * @param {HTMLButtonElement} buttonElement - The delete button element.
+   * @returns {number} - The project ID.
+   */
+  private getProjectIdFromElement(buttonElement: HTMLButtonElement): number {
+    return Number(buttonElement.getAttribute('data-id'));
   }
 }
 
