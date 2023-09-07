@@ -10,6 +10,8 @@
 @import url('../styles/components/toast.css');
 @import url('../styles/components/table.css');
 @import url('../styles/components/tag.css');
+@import url('../styles/components/modal.css');
+@import url('../styles/components/confirm.css');
 
 /* LAYOUTS */
 @import url('../styles/layouts/sidebar.css');

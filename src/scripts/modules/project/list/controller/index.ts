@@ -1,6 +1,7 @@
-import { Toast, renderSidebar } from '@/utils';
+import { Toast, renderSidebar, showConfirmPopup } from '@/utils';
 import ProjectListModel from '../model';
 import ProjectListView from '../view';
+import { CONFIRM_MESSAGES } from '@/constants';
 
 class ProjectListController {
   private model: ProjectListModel;
@@ -38,6 +39,10 @@ class ProjectListController {
   private loadAndRenderProjects = async () => {
     const projectList = await this.model.getProjects('');
     this.view.renderProjectList(projectList);
+
+    if (projectList.length > 0) {
+      this.view.bindDeleteEvent(this.handleDeleteProject);
+    }
   };
 
   /**
@@ -47,6 +52,29 @@ class ProjectListController {
    */
   private handleError = (error: unknown) => {
     this.toast.error(error as string);
+  };
+
+  /**
+   * Handles the deletion of a project.
+   *
+   * @param {number} projectId - The ID of the project to be deleted.
+   */
+  private handleDeleteProject = (projectId: number) => {
+    showConfirmPopup(CONFIRM_MESSAGES.DELETE_PROJECT, () => this.confirmDelete(projectId));
+  };
+
+  /**
+   * Confirms the deletion of a project and initiates the deletion process.
+   *
+   * @param {number} projectId - The ID of the project to be deleted.
+   */
+  private confirmDelete = async (projectId: number) => {
+    try {
+      await this.model.deleteProject(projectId);
+      await this.loadAndRenderProjects();
+    } catch (error: unknown) {
+      this.handleError(error);
+    }
   };
 }
 
