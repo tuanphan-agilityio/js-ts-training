@@ -42,7 +42,7 @@
 - MVC
 
 - LocalStorage
-  
+
 - Parcel
 
 ## Task Management
@@ -97,13 +97,17 @@
 
 - Step 3: Checkout branch `git checkout practice`
 
-- Step 4: Install package `yarn install`
+- Step 4: Add an .env file in the project with the following content:
 
-- Step 5: Run server `yarn start:server`
+  `API_URL = "http://localhost:3000/"`
 
-- Step 6: Run client `yarn start`
+- Step 5: Install package `yarn install`
 
-- Step 7: Open <http://localhost:1234/> in your browser to see the HTML file.
+- Step 6: Run server `yarn start:server`
+
+- Step 7: Run client `yarn start`
+
+- Step 8: Open <http://localhost:1234/> in your browser to see the HTML file.
 
 ## Account
 
