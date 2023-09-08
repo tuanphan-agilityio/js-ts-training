@@ -5,8 +5,8 @@ import AuthView from './modules/auth/view';
 
 import DashboardController from './modules/dashboard/controller';
 
-import ProjectListModel from './modules/project/list/model/index';
-import ProjectListController from './modules/project/list/controller/index';
+import ProjectListController from './modules/project/list/controller';
+import ProjectListModel from './modules/project/list/model';
 import ProjectListView from './modules/project/list/view';
 
 const app = () => {

@@ -1,6 +1,8 @@
-import { getProductTableTemplate } from '@/templates';
+import { DEBOUNCE_TIMEOUT } from '@/constants';
+import { debounce } from '@/helpers';
+import { generateProductTableTemplate } from '@/templates';
 import { ProjectItem } from '@/types';
-import { querySelector, querySelectorAll } from '@/utils';
+import { getElementById, querySelector, querySelectorAll } from '@/utils';
 
 /**
  * View class responsible for rendering and handling project list-related UI.
@@ -22,7 +24,7 @@ class ProjectListView {
    * @param {ProjectItem[]} projectList - The list of projects to render.
    */
   renderProjectList(projectList: ProjectItem[]): void {
-    this.tableElement.innerHTML = getProductTableTemplate(projectList);
+    this.tableElement.innerHTML = generateProductTableTemplate(projectList);
   }
 
   /**
@@ -50,6 +52,34 @@ class ProjectListView {
   private getProjectIdFromElement(buttonElement: HTMLButtonElement): number {
     return Number(buttonElement.getAttribute('data-id'));
   }
+
+  /**
+   * Binds a filter change event handler to the filter select element.
+   *
+   * @param {Function} handler - The filter change event handler function.
+   */
+  bindFilterChange = (handler: (value: string) => void) => {
+    const filterSelectElement = getElementById<HTMLSelectElement>('filter-status');
+
+    filterSelectElement.addEventListener('change', () => {
+      const filterValue = filterSelectElement.value;
+      handler(filterValue);
+    });
+  };
+
+  /**
+   * Binds a search event handler to the search input element.
+   *
+   * @param {Function} handler - The search event handler function.
+   */
+  bindSearch = (handler: (keyword: string) => void) => {
+    const searchInput = getElementById<HTMLInputElement>('search-input');
+    const debouncedHandler = debounce(handler, DEBOUNCE_TIMEOUT);
+
+    searchInput.addEventListener('input', () => {
+      debouncedHandler(searchInput.value);
+    });
+  };
 }
 
 export default ProjectListView;

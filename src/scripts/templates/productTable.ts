@@ -7,8 +7,8 @@ import { ProjectItem } from '@/types';
  * @param {ProjectItem[]} projectList - The list of project items to display.
  * @returns {string} The HTML template.
  */
-function getProductTableTemplate(projectList: ProjectItem[]): string {
-  return `
+const generateProductTableTemplate = (projectList: ProjectItem[]): string =>
+  `
         <thead class="table-head">
           <tr>
             <th class="table-header">Logo</th>
@@ -72,6 +72,5 @@ function getProductTableTemplate(projectList: ProjectItem[]): string {
             })
             .join('')}
         </tbody>`;
-}
 
-export { getProductTableTemplate };
+export { generateProductTableTemplate };
