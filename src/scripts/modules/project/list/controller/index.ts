@@ -1,16 +1,20 @@
 import { Toast, renderSidebar, showConfirmPopup } from '@/utils';
+import { convertObjectToURLQueryString } from '@/helpers';
+import { ProjectItem, QueryParams } from '@/types';
+import { CONFIRM_MESSAGES } from '@/constants';
 import ProjectListModel from '../model';
 import ProjectListView from '../view';
-import { CONFIRM_MESSAGES } from '@/constants';
 
 class ProjectListController {
   private model: ProjectListModel;
   private view: ProjectListView;
   private toast = new Toast();
+  private params: QueryParams;
 
   constructor(model: ProjectListModel, view: ProjectListView) {
     this.model = model;
     this.view = view;
+    this.params = {};
     this.configureView();
     this.init();
   }
@@ -28,6 +32,7 @@ class ProjectListController {
   private init = async () => {
     try {
       await this.loadAndRenderProjects();
+      this.bindViewEvents();
     } catch (error: unknown) {
       this.handleError(error);
     }
@@ -37,7 +42,17 @@ class ProjectListController {
    * Load and render projects.
    */
   private loadAndRenderProjects = async () => {
-    const projectList = await this.model.getProjects('');
+    const queryString = convertObjectToURLQueryString(this.params);
+    const projectList = await this.model.getProjects(queryString);
+    this.renderProjectList(projectList);
+  };
+
+  /**
+   * Renders the project list in the view and binds delete events if applicable.
+   *
+   * @param {ProjectItem[]} projectList - The list of projects to render.
+   */
+  private renderProjectList = (projectList: ProjectItem[]) => {
     this.view.renderProjectList(projectList);
 
     if (projectList.length > 0) {
@@ -75,6 +90,72 @@ class ProjectListController {
     } catch (error: unknown) {
       this.handleError(error);
     }
+  };
+
+  /**
+   * Binds view events to their respective handler methods.
+   */
+  private bindViewEvents = () => {
+    this.view.bindFilterChange(this.handleFilterChange);
+    this.view.bindSearch(this.handleSearchChange);
+  };
+
+  /**
+   * Handles the change of the filter value.
+   *
+   * @param {string} filterValue - The new filter value.
+   */
+  private handleFilterChange = async (filterValue: string) => {
+    try {
+      const queryString = this.generateQueryStringWithNewStatus(filterValue);
+      const projectList = await this.model.getProjects(queryString);
+      this.renderProjectList(projectList);
+    } catch (error: unknown) {
+      this.handleError(error);
+    }
+  };
+
+  /**
+   * Creates a query string with the given status.
+   *
+   * @param {string} status - The status to include in the query string.
+   * @returns {string} - The generated query string.
+   */
+  private generateQueryStringWithNewStatus = (status: string): string => {
+    if (!status) {
+      delete this.params.status;
+    } else {
+      this.params.status = status;
+    }
+
+    return convertObjectToURLQueryString(this.params);
+  };
+
+  /**
+   * Handles the change of the search keyword.
+   *
+   * @param {string} keyword - The new search keyword.
+   */
+  private handleSearchChange = async (keyword: string) => {
+    try {
+      const queryString = this.generateQueryStringWithNewKeyword(keyword);
+      const searchResults = await this.model.getProjects(queryString);
+      this.renderProjectList(searchResults);
+    } catch (error: unknown) {
+      this.handleError(error);
+    }
+  };
+
+  /**
+   * Creates a query string with the given keyword.
+   *
+   * @param {string} keyword - The keyword to include in the query string.
+   * @returns {string} - The generated query string.
+   */
+  private generateQueryStringWithNewKeyword = (keyword: string): string => {
+    this.params.q = keyword;
+
+    return convertObjectToURLQueryString(this.params);
   };
 }
 
