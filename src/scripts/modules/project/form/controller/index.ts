@@ -1,9 +1,10 @@
-import { Toast, renderSidebar } from '@/utils';
-import { ProjectFormInputs } from '@/types';
-import { navigatePage } from '@/helpers';
+import { Toast, renderSidebar, showFormErrors } from '@/utils';
+import { FormError, ProjectFormInputs } from '@/types';
+import { camelCaseToHyphenCase, isEmpty, navigatePage } from '@/helpers';
 import { ROUTES } from '@/constants';
 import ProjectFormView from '../view';
 import ProjectFormModel from '../model';
+import validateProjectForm from './validation';
 
 class ProjectFormController {
   private view: ProjectFormView;
@@ -48,12 +49,38 @@ class ProjectFormController {
    * @param formData - The data submitted in the form.
    */
   private handleSubmitForm = async (formData: ProjectFormInputs) => {
-    try {
-      await this.model.createProject(formData);
-      navigatePage(ROUTES.PROJECTS);
-    } catch (error: unknown) {
-      this.toast.error(error as string);
+    // Validate the form data and check for errors.
+    const formErrors = validateProjectForm(formData);
+
+    if (isEmpty(formErrors)) {
+      try {
+        await this.model.createProject(formData);
+        navigatePage(ROUTES.PROJECTS);
+      } catch (error: unknown) {
+        this.toast.error(error as string);
+      }
+    } else {
+      // Transform and display form errors in the UI.
+      const errors = this.transformFormErrors(formErrors);
+      showFormErrors(errors);
     }
+  };
+
+  /**
+   * Transforms form errors to match the UI convention (camelCase to hyphen-case).
+   *
+   * @param {Record<string, string>} formErrors - The form errors to be transformed.
+   * @returns {FormError} Transformed form errors.
+   */
+  private transformFormErrors = (formErrors: Record<string, string>): FormError => {
+    const errors: FormError = {};
+
+    Object.entries(formErrors).forEach(([key, value]) => {
+      const newKey = camelCaseToHyphenCase(key);
+      errors[newKey] = value;
+    });
+
+    return errors;
   };
 }
 
