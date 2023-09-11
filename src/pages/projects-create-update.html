@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <meta name="description" content="Project management" />
+    <title>Project</title>
+  </head>
+  <body>
+    <div id="site-main" class="content-wrapper">
+      <aside class="sidebar"></aside>
+
+      <main class="main-page">
+        <header class="main-header">
+          <div class="header-search">
+            <input class="header-search-input" type="text" placeholder="Search..." />
+            <i class="search-icon header-icon"></i>
+          </div>
+
+          <div>
+            <i class="bell-icon header-icon"></i>
+          </div>
+        </header>
+
+        <div class="container project-form-container">
+          <form class="project-form" action="/">
+            <h2 class="project-form-title">Add new project</h2>
+
+            <!-- Name -->
+            <div class="form-control-project">
+              <label class="form-label" for="name">Name</label>
+              <input
+                class="form-input form-input-project"
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Name"
+              />
+              <p class="input-error" id="name-error"></p>
+            </div>
+
+            <!-- Client -->
+            <div class="form-control-project">
+              <label class="form-label" for="client">Client</label>
+              <input
+                class="form-input form-input-project"
+                id="client"
+                name="client"
+                type="text"
+                placeholder="Client"
+              />
+              <p class="input-error" id="client-error"></p>
+            </div>
+
+            <!-- Project manager -->
+            <div class="form-control-project">
+              <label class="form-label" for="project-manager-id">Project Manager</label>
+              <select
+                id="project-manager-id"
+                name="project-manager-id"
+                class="form-input form-input-project"
+              >
+                <option value="" disabled selected>Choose the project manager</option>
+              </select>
+              <p class="input-error" id="project-manager-id-error"></p>
+            </div>
+
+            <!-- Team member -->
+            <div class="form-control-project">
+              <label class="form-label" for="team-member-ids">Team Member</label>
+              <select
+                id="team-member-ids"
+                name="team-member-ids"
+                class="form-input form-input-project project-member-input"
+                multiple
+              ></select>
+              <p class="input-error" id="team-member-ids-error"></p>
+            </div>
+
+            <!-- Status -->
+            <div class="form-control-project">
+              <label class="form-label" for="status">Status</label>
+              <select id="status" name="status" class="form-input form-input-project">
+                <option value="" disabled selected>Choose the status</option>
+                <option value="in-progress">In progress</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+              <p class="input-error" id="status-error"></p>
+            </div>
+
+            <!-- Start date -->
+            <div class="form-control-project">
+              <label class="form-label" for="start-date">Start Date</label>
+              <input
+                class="form-input form-input-project"
+                id="start-date"
+                name="start-date"
+                type="date"
+                placeholder="Start Date*"
+              />
+              <p class="input-error" id="start-date-error"></p>
+            </div>
+
+            <!-- End date -->
+            <div class="form-control-project">
+              <label class="form-label" for="end-date">End Date</label>
+              <input
+                class="form-input form-input-project"
+                id="end-date"
+                name="end-date"
+                type="date"
+                placeholder="End Date"
+              />
+              <p class="input-error" id="end-date-error"></p>
+            </div>
+
+            <!-- Logo -->
+            <div class="form-control-project form-control-logo">
+              <label class="form-label" for="logo">Logo</label>
+              <input
+                class="form-input form-input-project project-logo-input"
+                id="logo"
+                name="logo"
+                type="file"
+                accept="image/*"
+                placeholder="Choose file"
+              />
+              <p class="input-error" id="logo-error"></p>
+            </div>
+
+            <!-- Image preview -->
+            <img class="image-preview" src="#" alt="Image Preview" />
+
+            <!-- Description -->
+            <div class="form-control-project form-control-description">
+              <label class="form-label" for="description">Description</label>
+              <textarea
+                class="form-input form-input-project project-description-input"
+                id="description"
+                name="description"
+                type="text"
+                placeholder="Description"
+                maxlength="2000"
+              ></textarea>
+              <p class="input-error" id="description-error"></p>
+            </div>
+
+            <div class="project-form-btns">
+              <button class="btn btn-cancel">Cancel</button>
+              <button class="btn" type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <script type="module" src="../scripts/main.ts" defer></script>
+</html>

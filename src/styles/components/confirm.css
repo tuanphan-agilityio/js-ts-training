@@ -25,7 +25,3 @@
 .btn-confirm {
   background-color: var(--color-success);
 }
-
-.btn-cancel {
-  background-color: var(--color-dark-gray);
-}

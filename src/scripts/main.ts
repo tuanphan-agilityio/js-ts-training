@@ -14,13 +14,12 @@ const app = () => {
   // const authModel = new AuthModel();
   // const authView = new AuthView();
   // return new AuthController(authModel, authView);
-
   // TODO: Handle routes
   // return new DashboardController();
-
-  const projectListView = new ProjectListView();
-  const projectListModel = new ProjectListModel();
-  return new ProjectListController(projectListModel, projectListView);
+  // TODO: Handle routes
+  // const projectListView = new ProjectListView();
+  // const projectListModel = new ProjectListModel();
+  // return new ProjectListController(projectListModel, projectListView);
 };
 
 app();
