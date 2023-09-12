@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <meta name="description" content="Project management" />
+    <title>Project</title>
+  </head>
+  <body>
+    <div id="site-main" class="content-wrapper">
+      <aside class="sidebar"></aside>
+
+      <main class="main-page">
+        <header class="main-header">
+          <div class="header-search">
+            <input class="header-search-input" type="text" placeholder="Search..." />
+            <i class="search-icon header-icon"></i>
+          </div>
+
+          <div>
+            <i class="bell-icon header-icon"></i>
+          </div>
+        </header>
+
+        <div class="container project-detail-container">
+          <section class="project-summary">
+            <div class="project-avatar-wrapper">
+              <img
+                class="project-avatar-img"
+                src="../assets/images/project-default.webp"
+                alt="Project Logo"
+              />
+            </div>
+            <hgroup class="project-detail">
+              <h2 class="project-name">Project Name</h2>
+              <p class="project-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nunc justo, egestas
+                non felis eget, dignissim varius lorem. Proin feugiat tincidunt dui, eget rutrum
+                erat tincidunt a. Vivamus auctor dolor tincidunt dapibus semper. Fusce nulla nunc,
+                tincidunt ut est at, dictum elementum felis. Phasellus maximus aliquet eros placerat
+                pretium. Aenean pretium tincidunt diam, sit amet tincidunt nulla commodo at. Nulla
+                efficitur nulla eget justo congue, vitae sagittis est molestie.
+              </p>
+            </hgroup>
+          </section>
+
+          <div class="project-info">
+            <div class="project-overview">
+              <p class="project-info-heading">Overview</p>
+
+              <ul class="project-info-list">
+                <li class="project-info-item">
+                  <p class="project-info-field">Status</p>
+                  <p class="tag tag-in-progress">In-progress</p>
+                </li>
+
+                <li class="project-info-item">
+                  <p class="project-info-field">Start Date</p>
+                  <p>08/14/2023</p>
+                </li>
+
+                <li class="project-info-item">
+                  <p class="project-info-field">End Date</p>
+                  <p>08/14/2023</p>
+                </li>
+
+                <li class="project-info-item">
+                  <p class="project-info-field">Client</p>
+                  <p>Client A</p>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-member">
+              <p class="project-info-heading">Members</p>
+              <div class="member-wrapper">
+                <div class="member-avatar-wrapper">
+                  <img
+                    class="member-avatar-img"
+                    src="../assets/images/avatar-default.webp"
+                    alt="Avatar"
+                  />
+                </div>
+                <div class="member-info">
+                  <p class="member-name">Member A</p>
+                  <p class="member-role">Developer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+
+  <script type="module" src="../scripts/main.ts" defer></script>
+</html>
