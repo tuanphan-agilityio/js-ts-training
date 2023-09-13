@@ -3,7 +3,7 @@
  * @param val - The value to be checked.
  * @returns `true` if the value is considered empty, otherwise `false`.
  */
-function isEmpty(val: Record<string, unknown> | null | undefined): boolean {
+const isEmpty = (val: Record<string, unknown> | null | undefined): boolean => {
   // Check if the value is null or undefined
   if (val === null || val === undefined) {
     return true;
@@ -16,6 +16,6 @@ function isEmpty(val: Record<string, unknown> | null | undefined): boolean {
 
   // Otherwise, the value is not empty
   return false;
-}
+};
 
 export { isEmpty };
