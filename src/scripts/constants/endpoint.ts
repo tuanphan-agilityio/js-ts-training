@@ -1,6 +1,8 @@
 const API_ENDPOINT = {
   SIGN_IN: '/login',
-  PROJECT_LIST: '/projects',
+  MEMBERS: '/members',
+  PROJECT_MANAGERS: '/projectManagers',
+  PROJECTS: '/projects',
 };
 
 export { API_ENDPOINT };
