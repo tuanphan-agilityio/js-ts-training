@@ -1,0 +1,16 @@
+.not-found-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.content-title {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-6xl);
+}
+
+.content-description {
+  font-size: var(--font-size-3xl);
+}
