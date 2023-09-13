@@ -21,7 +21,9 @@
     "import/prefer-default-export": "off",
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
-    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }]
+    "lines-between-class-members": ["error", "always", { "exceptAfterSingleLine": true }],
+    "no-return-await": "off",
+    "consistent-return": "off"
   },
 
   "ignorePatterns": ["dist"]

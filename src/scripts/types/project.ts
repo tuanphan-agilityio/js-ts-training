@@ -20,4 +20,18 @@ interface ProjectItem {
   endDate: string;
 }
 
-export { ProjectItem, Participant, PROJECT_STATUS };
+interface ProjectForm {
+  name: string;
+  client: string;
+  projectManagerId: string;
+  teamMemberIds?: string[];
+  status: PROJECT_STATUS;
+  startDate: string;
+  endDate?: string;
+  logo?: string;
+  description?: string;
+}
+
+type ProjectFormInputs = Required<ProjectForm>;
+
+export { ProjectItem, Participant, PROJECT_STATUS, ProjectForm, ProjectFormInputs };
