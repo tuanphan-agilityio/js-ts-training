@@ -1,6 +1,6 @@
 import { Toast, renderSidebar, showFormErrors } from '@/utils';
 import { FormError, ProjectFormInputs } from '@/types';
-import { camelCaseToHyphenCase, isEmpty, navigatePage } from '@/helpers';
+import { camelCaseToHyphenCase, extractParamFromUrlByKey, isEmpty, navigatePage } from '@/helpers';
 import { ROUTES } from '@/constants';
 import ProjectFormView from '../view';
 import ProjectFormModel from '../model';
@@ -25,6 +25,7 @@ class ProjectFormController {
     await this.fetchAndBindSelectBoxData();
     this.view.bindSubmitFormEvent(this.handleSubmitForm);
     this.view.bindCancelEvent(this.handleCancelButtonClick);
+    this.showDefaultValuesForm();
   };
 
   /**
@@ -44,17 +45,23 @@ class ProjectFormController {
   };
 
   /**
-   * Handles the submission of a project form.
+   * Handles the form submission for creating or updating a project.
    *
-   * @param formData - The data submitted in the form.
+   * @param {ProjectFormInputs} formData - The form data for the project.
+   * @param {string | null} projectId - The ID of the project being updated (null for new projects).
    */
-  private handleSubmitForm = async (formData: ProjectFormInputs) => {
+  private handleSubmitForm = async (formData: ProjectFormInputs, projectId: string | null) => {
     // Validate the form data and check for errors.
     const formErrors = validateProjectForm(formData);
 
     if (isEmpty(formErrors)) {
       try {
-        await this.model.createProject(formData);
+        if (!projectId) {
+          await this.model.createProject(formData);
+        } else {
+          await this.model.updateProject(projectId, formData);
+        }
+
         navigatePage(ROUTES.PROJECTS);
       } catch (error: unknown) {
         this.toast.error(error as string);
@@ -81,6 +88,21 @@ class ProjectFormController {
     });
 
     return errors;
+  };
+
+  /**
+   * Shows default values in the form when editing an existing project.
+   */
+  private showDefaultValuesForm = async () => {
+    const projectId = extractParamFromUrlByKey('id');
+    if (projectId) {
+      try {
+        const project = await this.model.getProject(projectId);
+        this.view.renderEditProjectForm(project);
+      } catch (error) {
+        this.toast.error(error as string);
+      }
+    }
   };
 }
 

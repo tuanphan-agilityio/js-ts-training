@@ -1,22 +1,38 @@
-import { convertFileToBase64 } from '@/helpers';
-import { Participant, ProjectFormInputs, PROJECT_STATUS } from '@/types';
+import { convertFileToBase64, extractParamFromUrlByKey } from '@/helpers';
+import { Participant, ProjectFormInputs, PROJECT_STATUS, ProjectResponse } from '@/types';
 import { getElementById } from '@/utils';
 
 class ProjectFormView {
+  private nameInput: HTMLInputElement;
+  private clientInput: HTMLInputElement;
   private projectManagerSelect: HTMLSelectElement;
   private teamMemberSelect: HTMLSelectElement;
+  private statusSelect: HTMLSelectElement;
+  private startDateInput: HTMLInputElement;
+  private endDateInput: HTMLInputElement;
   private logoInput: HTMLInputElement;
+  private descriptionTextarea: HTMLTextAreaElement;
   private projectForm: HTMLFormElement;
   private cancelButtonElement: HTMLButtonElement;
   private imgPreviewElement: HTMLInputElement;
+  private projectId: string | null;
 
   constructor() {
     this.projectManagerSelect = getElementById('project-manager-id');
     this.teamMemberSelect = getElementById('team-member-ids');
     this.logoInput = getElementById('logo');
+    this.nameInput = getElementById('name');
+    this.clientInput = getElementById('client');
+    this.teamMemberSelect = getElementById('team-member-ids');
+    this.statusSelect = getElementById('status');
+    this.startDateInput = getElementById('start-date');
+    this.endDateInput = getElementById('end-date');
+    this.descriptionTextarea = getElementById('description');
     this.imgPreviewElement = getElementById('project-logo-preview');
+
     this.projectForm = getElementById('project-form');
     this.cancelButtonElement = getElementById('btn-project-cancel');
+    this.projectId = extractParamFromUrlByKey('id');
     this.handleImagePreview();
   }
 
@@ -101,15 +117,15 @@ class ProjectFormView {
    * Bind the form submit event.
    *
    * @param {(data: ProjectForm) => void} handler - The event handler function.
+   * @param projectId - The current project ID (can be null if creating a new project).
    */
-  bindSubmitFormEvent = (handler: (data: ProjectFormInputs) => void) => {
+  bindSubmitFormEvent = (handler: (data: ProjectFormInputs, projectId: string | null) => void) => {
     this.projectForm.addEventListener('submit', async (event: SubmitEvent) => {
       event.preventDefault();
 
       const formData = new FormData(this.projectForm);
       const data = await this.extractFormData(formData);
-
-      handler(data);
+      handler(data, this.projectId);
     });
   };
 
@@ -128,8 +144,10 @@ class ProjectFormView {
       return file.size > 0 ? await convertFileToBase64(file) : defaultValue;
     };
 
-    // TODO: Handle in update project case
-    const imgBase64 = await getOptionalFileBase64('logo', '');
+    const imgBase64 = await getOptionalFileBase64(
+      'logo',
+      this.projectId ? this.imgPreviewElement.src : '',
+    );
 
     return {
       name: extractValue('name'),
@@ -142,6 +160,47 @@ class ProjectFormView {
       logo: imgBase64,
       description: extractValue('description'),
     };
+  };
+
+  /**
+   * Render an existing project's details in the edit form.
+   *
+   * @param {ProjectFormResponse} project - The project details to render.
+   */
+  renderEditProjectForm = (project: ProjectResponse) => {
+    const {
+      name,
+      client,
+      status,
+      startDate,
+      endDate,
+      logo,
+      description,
+      teamMemberIds,
+      projectManager,
+    } = project;
+
+    this.nameInput.value = name;
+    this.clientInput.value = client;
+    this.projectManagerSelect.value = projectManager.id;
+    this.statusSelect.value = status;
+    this.startDateInput.value = startDate;
+    this.endDateInput.value = endDate || '';
+    this.descriptionTextarea.value = description || '';
+    this.logoInput.value = '';
+
+    if (logo) {
+      this.imgPreviewElement.src = logo;
+      this.imgPreviewElement.classList.add('open');
+    }
+
+    if (teamMemberIds?.length) {
+      this.teamMemberSelect.querySelectorAll('option').forEach((option) => {
+        if (teamMemberIds?.includes(option.value)) {
+          option.selected = true;
+        }
+      });
+    }
   };
 }
 

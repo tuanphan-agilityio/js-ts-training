@@ -1,6 +1,6 @@
 import axiosApp from '@/services/axiosApp';
 import { API_ENDPOINT } from '@/constants';
-import { Participant, ProjectForm } from '@/types';
+import { Participant, ProjectForm, ProjectResponse } from '@/types';
 
 class ProjectFormModel {
   /**
@@ -49,6 +49,31 @@ class ProjectFormModel {
   createProject = async (project: ProjectForm): Promise<ProjectForm> => {
     const data: ProjectForm = await axiosApp.post(API_ENDPOINT.PROJECTS, project);
 
+    return data;
+  };
+
+  /**
+   * Fetches project details by project ID from the API.
+   *
+   * @param {string} id - The ID of the project to fetch.
+   * @returns {Promise<ProjectResponse>} A promise resolving to the project details response.
+   */
+  getProject = async (id: string): Promise<ProjectResponse> => {
+    const data: ProjectResponse = await axiosApp.get(
+      `${API_ENDPOINT.PROJECTS}/${id}?_expand=projectManager`,
+    );
+    return data;
+  };
+
+  /**
+   * Updates an existing project by sending a PATCH request to the API.
+   *
+   * @param {string} id - The ID of the project to update.
+   * @param {ProjectForm} project - The project details to update.
+   * @returns {Promise<ProjectForm>} A promise resolving to the updated project details.
+   */
+  updateProject = async (id: string, project: ProjectForm): Promise<ProjectForm> => {
+    const data: ProjectForm = await axiosApp.patch(`${API_ENDPOINT.PROJECTS}/${id}`, project);
     return data;
   };
 }
