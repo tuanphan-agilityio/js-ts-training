@@ -1,13 +1,13 @@
 import { capitalizeFirstLetter, formatDate } from '@/helpers';
-import { ProjectItem } from '@/types';
+import { Project } from '@/types';
 
 /**
  * Generates the HTML template for displaying a table of project items.
  *
- * @param {ProjectItem[]} projectList - The list of project items to display.
+ * @param {Project[]} projectList - The list of project items to display.
  * @returns {string} The HTML template.
  */
-const generateProductTableTemplate = (projectList: ProjectItem[]): string =>
+const generateProductTableTemplate = (projectList: Project[]): string =>
   `
         <thead class="table-head">
           <tr>

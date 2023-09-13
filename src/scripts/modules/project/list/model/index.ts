@@ -1,17 +1,17 @@
 import { API_ENDPOINT } from '@/constants';
 import axiosApp from '@/services/axiosApp';
-import { ProjectItem } from '@/types';
+import { Project } from '@/types';
 
 class ProjectListModel {
   /**
    * Fetches the list of projects with expanded project manager information.
    *
    * @param {string} params - Optional query parameters.
-   * @returns {Promise<ProjectItem[]>} A promise resolving to the list of projects.
+   * @returns {Promise<Project[]>} A promise resolving to the list of projects.
    */
-  getProjects = async (params: string = ''): Promise<ProjectItem[]> => {
-    const response: ProjectItem[] = await axiosApp.get(
-      `${API_ENDPOINT.PROJECT_LIST}?_expand=projectManager&${params}`,
+  getProjects = async (params: string = ''): Promise<Project[]> => {
+    const response: Project[] = await axiosApp.get(
+      `${API_ENDPOINT.PROJECTS}?_expand=projectManager&${params}`,
     );
 
     return response;
@@ -24,7 +24,7 @@ class ProjectListModel {
    * @returns {Promise<void>} A promise that resolves when the project is deleted.
    */
   deleteProject = async (id: number): Promise<void> => {
-    await axiosApp.delete(`${API_ENDPOINT.PROJECT_LIST}/${id}`);
+    await axiosApp.delete(`${API_ENDPOINT.PROJECTS}/${id}`);
   };
 }
 

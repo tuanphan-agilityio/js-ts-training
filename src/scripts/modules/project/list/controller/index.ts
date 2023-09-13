@@ -1,6 +1,6 @@
 import { Toast, renderSidebar, showConfirmPopup } from '@/utils';
 import { convertObjectToURLQueryString } from '@/helpers';
-import { ProjectItem, QueryParams } from '@/types';
+import { Project, QueryParams } from '@/types';
 import { CONFIRM_MESSAGES } from '@/constants';
 import ProjectListModel from '../model';
 import ProjectListView from '../view';
@@ -50,9 +50,9 @@ class ProjectListController {
   /**
    * Renders the project list in the view and binds delete events if applicable.
    *
-   * @param {ProjectItem[]} projectList - The list of projects to render.
+   * @param {Project[]} projectList - The list of projects to render.
    */
-  private renderProjectList = (projectList: ProjectItem[]) => {
+  private renderProjectList = (projectList: Project[]) => {
     this.view.renderProjectList(projectList);
 
     if (projectList.length > 0) {
