@@ -5,3 +5,4 @@ export * from './formatDate';
 export * from './url';
 export * from './debounce';
 export * from './convertFileToBase64';
+export * from './camelCaseToHyphenCase';

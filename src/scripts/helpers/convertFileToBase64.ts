@@ -10,13 +10,16 @@ const convertFileToBase64 = (file: File): Promise<string> =>
   new Promise((resolve) => {
     const reader = new FileReader();
 
+    // Event listener for when the FileReader finishes reading the file
     reader.onload = (event: ProgressEvent<FileReader>) => {
       if (event.target && event.target.result) {
+        // Extract the Base64 data from the FileReader result
         const base64Data = event.target.result as string;
         resolve(base64Data);
       }
     };
 
+    // Start reading the file as a data URL (Base64)
     reader.readAsDataURL(file);
   });
 
