@@ -23,20 +23,22 @@ const generateProjectTableTemplate = (projectList: ProjectItem[]): string =>
           </tr>
         </thead>
         <tbody>
-          ${projectList
-            ?.map((projectItem) => {
-              const {
-                id,
-                name,
-                logo,
-                projectManager: { name: projectManagerName },
-                client,
-                startDate,
-                endDate,
-                status,
-              } = projectItem;
+          ${
+            projectList?.length > 0
+              ? projectList
+                  .map((projectItem) => {
+                    const {
+                      id,
+                      name,
+                      logo,
+                      projectManager: { name: projectManagerName },
+                      client,
+                      startDate,
+                      endDate,
+                      status,
+                    } = projectItem;
 
-              return `
+                    return `
               <tr class="table-row" data-id=${id}>
                 <td class="table-data">
                   <img
@@ -81,8 +83,12 @@ const generateProjectTableTemplate = (projectList: ProjectItem[]): string =>
                 </td>
               </tr>
               `;
-            })
-            .join('')}
+                  })
+                  .join('')
+              : `<tr>
+                  <td colspan="8" class="table-empty-message">No data to show</td>
+                </tr>`
+          }
         </tbody>`;
 
 export { generateProjectTableTemplate };

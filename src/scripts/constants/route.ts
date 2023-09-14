@@ -10,10 +10,34 @@ const ROUTES = {
 const NAV_ITEMS = [
   { href: ROUTES.DASHBOARD, iconName: 'home', title: 'Home', activePaths: [ROUTES.DASHBOARD] },
   {
+    href: '#',
+    iconName: 'course',
+    title: 'Course',
+    activePaths: [],
+  },
+  {
     href: ROUTES.PROJECTS,
     iconName: 'project',
     title: 'Projects',
     activePaths: [ROUTES.PROJECTS, ROUTES.PROJECTS_DETAIL, ROUTES.PROJECTS_FORM],
+  },
+  {
+    href: '#',
+    iconName: 'payment',
+    title: 'Payment',
+    activePaths: [],
+  },
+  {
+    href: '#',
+    iconName: 'report',
+    title: 'Report',
+    activePaths: [],
+  },
+  {
+    href: '#',
+    iconName: 'setting',
+    title: 'Setting',
+    activePaths: [],
   },
 ];
 
