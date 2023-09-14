@@ -4,6 +4,7 @@
   width: fit-content;
   text-align: center;
   color: var(--color-light);
+  white-space: nowrap;
 }
 
 .tag-in-progress {

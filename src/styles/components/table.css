@@ -1,6 +1,7 @@
 /* Table */
 .table-list {
   width: 100%;
+  min-width: 812px;
   font-size: var(--font-size-md);
   border-spacing: 0 16px;
 }

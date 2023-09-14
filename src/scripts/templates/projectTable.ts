@@ -55,12 +55,14 @@ const generateProjectTableTemplate = (projectList: Project[]): string =>
                 </td>
                 <td class="table-data">${client}</td>
                 <td class="table-data">
-                  <img
-                    class="project-manager-img"
-                    src="./images/manager-avatar-default.webp"
-                    alt="Project Manager Logo"
-                  />
+                  <div class="project-manager-data">
+                    <img
+                      class="project-manager-img"
+                      src="./images/manager-avatar-default.webp"
+                      alt="Project Manager Logo"
+                    />
                   ${projectManagerName}
+                  </div>
                 </td>
                 <td class="table-data">
                   <p class="tag tag-${status}">${capitalizeFirstLetter(status)}</p>
