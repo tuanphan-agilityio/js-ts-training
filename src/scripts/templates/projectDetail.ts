@@ -1,4 +1,4 @@
-import { formatDate } from '@/helpers';
+import { capitalizeFirstLetter, formatDate } from '@/helpers';
 import { ProjectDetail } from '@/types';
 
 /**
@@ -44,14 +44,14 @@ const generateProjectDetailTemplate = (project: ProjectDetail): string => {
       </hgroup>
     </section>
 
-    <div class="project-info-wrapper">
+    <div class="project-info">
       <div class="project-overview">
         <p class="project-info-heading">Overview</p>
 
         <ul class="project-info-list">
           <li class="project-info-item">
             <p class="project-info-field">Status</p>
-            <p class="tag tag-${status}">${status}</p>
+            <p class="tag tag-${status}">${capitalizeFirstLetter(status)}</p>
           </li>
 
           <li class="project-info-item">

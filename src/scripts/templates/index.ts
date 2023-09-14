@@ -1,4 +1,4 @@
 export * from './sidebar';
-export * from './productTable';
+export * from './projectTable';
 export * from './confirmPopup';
 export * from './projectDetail';

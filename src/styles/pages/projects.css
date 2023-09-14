@@ -62,3 +62,12 @@
 .btn-action:not(:last-child) {
   margin-right: 36px;
 }
+
+.project-name-data {
+  color: var(--color-success);
+  font-weight: var(--font-weight-medium);
+}
+
+.project-name-data:hover {
+  text-decoration: underline;
+}
