@@ -1,6 +1,6 @@
-import { Participant, ProjectResponse } from '.';
+import { Participant, Project } from '.';
 
-interface ProjectDetail extends Omit<ProjectResponse, 'teamMemberIds'> {
+interface ProjectDetail extends Omit<Project, 'teamMemberIds'> {
   members: Participant[];
 }
 

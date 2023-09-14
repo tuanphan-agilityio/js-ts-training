@@ -1,5 +1,5 @@
 import { convertFileToBase64, extractParamFromUrlByKey } from '@/helpers';
-import { Participant, ProjectFormInputs, PROJECT_STATUS, ProjectResponse } from '@/types';
+import { Participant, ProjectFormInputs, PROJECT_STATUS, Project } from '@/types';
 import { getElementById } from '@/utils';
 
 class ProjectFormView {
@@ -167,7 +167,7 @@ class ProjectFormView {
    *
    * @param {ProjectFormResponse} project - The project details to render.
    */
-  renderEditProjectForm = (project: ProjectResponse) => {
+  renderEditProjectForm = (project: Project) => {
     const {
       name,
       client,
