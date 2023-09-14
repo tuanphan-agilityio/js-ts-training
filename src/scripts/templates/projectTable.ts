@@ -1,4 +1,5 @@
-import { capitalizeFirstLetter, formatDate } from '@/helpers';
+import { ROUTES } from '@/constants';
+import { capitalizeFirstLetter, formatDate, generateUrlWithQueryParams } from '@/helpers';
 import { Project } from '@/types';
 
 /**
@@ -7,7 +8,7 @@ import { Project } from '@/types';
  * @param {Project[]} projectList - The list of project items to display.
  * @returns {string} The HTML template.
  */
-const generateProductTableTemplate = (projectList: Project[]): string =>
+const generateProjectTableTemplate = (projectList: Project[]): string =>
   `
         <thead class="table-head">
           <tr>
@@ -44,7 +45,14 @@ const generateProductTableTemplate = (projectList: Project[]): string =>
                     alt="Project logo"
                   />
                 </td>
-                <td class="table-data">${name}</td>
+                <td class="table-data">
+                  <a class="project-name-data" href="${generateUrlWithQueryParams(
+                    ROUTES.PROJECTS_DETAIL,
+                    {
+                      id,
+                    },
+                  )}">${name}</a>
+                </td>
                 <td class="table-data">${client}</td>
                 <td class="table-data">
                   <img
@@ -61,7 +69,9 @@ const generateProductTableTemplate = (projectList: Project[]): string =>
                 <td class="table-data">${endDate ? formatDate(endDate) : ''}</td>
                 <td class="table-data">
                   <button class="btn-action" >
-                    <span class="edit-icon"></span>
+                    <a href="${generateUrlWithQueryParams(ROUTES.PROJECTS_FORM, {
+                      id,
+                    })}" class="edit-icon"></a>
                   </button>
                   <button class="btn-action btn-delete-project" data-id=${id}>
                     <span class="delete-icon"></span>
@@ -73,4 +83,4 @@ const generateProductTableTemplate = (projectList: Project[]): string =>
             .join('')}
         </tbody>`;
 
-export { generateProductTableTemplate };
+export { generateProjectTableTemplate };

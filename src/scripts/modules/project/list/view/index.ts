@@ -1,6 +1,6 @@
 import { DEBOUNCE_TIMEOUT } from '@/constants';
 import { debounce } from '@/helpers';
-import { generateProductTableTemplate } from '@/templates';
+import { generateProjectTableTemplate } from '@/templates';
 import { Project } from '@/types';
 import { getElementById, querySelector, querySelectorAll } from '@/utils';
 
@@ -24,7 +24,7 @@ class ProjectListView {
    * @param {Project[]} projectList - The list of projects to render.
    */
   renderProjectList(projectList: Project[]): void {
-    this.tableElement.innerHTML = generateProductTableTemplate(projectList);
+    this.tableElement.innerHTML = generateProjectTableTemplate(projectList);
   }
 
   /**

@@ -1,7 +1,7 @@
 import { User, UserSignIn } from '@/types';
 import { LocalStorage, clearFormErrors, showFormErrors, Toast } from '@/utils';
-import { MESSAGES, STORAGE_KEYS } from '@/constants';
-import { isEmpty } from '@/helpers';
+import { ROUTES, STORAGE_KEYS } from '@/constants';
+import { isEmpty, navigatePage } from '@/helpers';
 
 import AuthModel from '../model';
 import AuthView from '../view';
@@ -53,7 +53,7 @@ class AuthController {
       const { accessToken, user: userInfo } = await this.model.signIn(user);
 
       this.saveUserCredentials(accessToken, userInfo);
-      this.showSuccessError(MESSAGES.HANDLE_SUCCESS(' Sign in'));
+      navigatePage(ROUTES.DASHBOARD);
     } catch (error) {
       this.showToastError(error);
     }
@@ -77,15 +77,6 @@ class AuthController {
    */
   private showToastError = (error: unknown): void => {
     this.toast.error(error as string);
-  };
-
-  /**
-   * Shows a toast message with a success.
-   *
-   * @param {unknown} error - The success message to display.
-   */
-  private showSuccessError = (error: unknown): void => {
-    this.toast.success(error as string);
   };
 
   /**

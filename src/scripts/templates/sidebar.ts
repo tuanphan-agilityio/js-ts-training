@@ -12,9 +12,12 @@ const generateSidebarTemplate = (userInfo: User | null, currentPath: string): st
   const { role, fullName, avatar } = userInfo || {};
 
   const navItemsHTML = NAV_ITEMS.map(
-    ({ href, iconName, title }) => `
+    ({ href, iconName, title, activePaths }) =>
+      `
       <li>
-        <a href="${href}" class="sidebar-nav-item ${href === currentPath ? 'nav-item-active' : ''}">
+        <a href="${href}" class="sidebar-nav-item ${
+          activePaths.includes(currentPath) ? 'nav-item-active' : ''
+        }">
           <span class="nav-icon-wrapper">
             <svg class="${iconName}-icon">
               <use xlink:href="./icons/${iconName}.svg#small"></use>
