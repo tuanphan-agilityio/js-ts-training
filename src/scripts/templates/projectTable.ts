@@ -1,6 +1,6 @@
 import { ROUTES } from '@/constants';
 import { capitalizeFirstLetter, formatDate, generateUrlWithQueryParams } from '@/helpers';
-import { Project } from '@/types';
+import { ProjectItem } from '@/types';
 
 /**
  * Generates the HTML template for displaying a table of project items.
@@ -8,7 +8,7 @@ import { Project } from '@/types';
  * @param {Project[]} projectList - The list of project items to display.
  * @returns {string} The HTML template.
  */
-const generateProjectTableTemplate = (projectList: Project[]): string =>
+const generateProjectTableTemplate = (projectList: ProjectItem[]): string =>
   `
         <thead class="table-head">
           <tr>

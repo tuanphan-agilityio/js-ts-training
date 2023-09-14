@@ -1,14 +1,5 @@
-import { PROJECT_STATUS, Participant } from '.';
+import { Project } from '.';
 
-interface Project {
-  id: number;
-  logo: string;
-  name: string;
-  client: string;
-  projectManager: Participant;
-  status: PROJECT_STATUS;
-  startDate: string;
-  endDate: string;
-}
+type ProjectItem = Omit<Project, 'description' | 'teamMemberIds'>;
 
-export { Project };
+export { ProjectItem };

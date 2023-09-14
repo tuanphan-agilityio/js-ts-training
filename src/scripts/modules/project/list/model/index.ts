@@ -1,6 +1,6 @@
 import { API_ENDPOINT } from '@/constants';
 import axiosApp from '@/services/axiosApp';
-import { Project } from '@/types';
+import { ProjectItem } from '@/types';
 
 class ProjectListModel {
   /**
@@ -9,8 +9,8 @@ class ProjectListModel {
    * @param {string} params - Optional query parameters.
    * @returns {Promise<Project[]>} A promise resolving to the list of projects.
    */
-  getProjects = async (params: string = ''): Promise<Project[]> => {
-    const response: Project[] = await axiosApp.get(
+  getProjects = async (params: string = ''): Promise<ProjectItem[]> => {
+    const response: ProjectItem[] = await axiosApp.get(
       `${API_ENDPOINT.PROJECTS}?_expand=projectManager&${params}`,
     );
 

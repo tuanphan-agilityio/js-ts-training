@@ -1,15 +1,7 @@
-import { PROJECT_STATUS } from '.';
+import { Project } from '.';
 
-interface ProjectForm {
-  name: string;
-  client: string;
+interface ProjectForm extends Omit<Project, 'projectManager' | 'id'> {
   projectManagerId: string;
-  teamMemberIds?: string[];
-  status: PROJECT_STATUS;
-  startDate: string;
-  endDate?: string;
-  logo?: string;
-  description?: string;
 }
 
 type ProjectFormInputs = Required<ProjectForm>;

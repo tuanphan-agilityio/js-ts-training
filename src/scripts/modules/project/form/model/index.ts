@@ -1,6 +1,6 @@
 import axiosApp from '@/services/axiosApp';
 import { API_ENDPOINT } from '@/constants';
-import { Participant, ProjectForm, ProjectResponse } from '@/types';
+import { Participant, ProjectForm, Project } from '@/types';
 
 class ProjectFormModel {
   /**
@@ -56,10 +56,10 @@ class ProjectFormModel {
    * Fetches project details by project ID from the API.
    *
    * @param {string} id - The ID of the project to fetch.
-   * @returns {Promise<ProjectResponse>} A promise resolving to the project details response.
+   * @returns {Promise<Project>} A promise resolving to the project details response.
    */
-  getProject = async (id: string): Promise<ProjectResponse> => {
-    const data: ProjectResponse = await axiosApp.get(
+  getProject = async (id: string): Promise<Project> => {
+    const data: Project = await axiosApp.get(
       `${API_ENDPOINT.PROJECTS}/${id}?_expand=projectManager`,
     );
     return data;
