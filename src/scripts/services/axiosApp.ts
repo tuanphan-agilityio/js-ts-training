@@ -1,8 +1,7 @@
-import axios, { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 import { SERVICE_TIMEOUT, STORAGE_KEYS } from '@/constants';
 import { LocalStorage } from '@/utils';
-import { handleFulfilled, handleRejected } from './utils';
 
 const instance: AxiosInstance = axios.create({
   baseURL: process.env.API_URL,
@@ -19,6 +18,9 @@ instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 });
 
 // Short response data
-instance.interceptors.response.use(handleFulfilled, handleRejected);
+instance.interceptors.response.use(
+  <T>(value: AxiosResponse<T>): Promise<T> => Promise.resolve(value?.data),
+  <T>(error: AxiosError<T>): Promise<T> => Promise.reject(error?.response?.data),
+);
 
 export default instance;
