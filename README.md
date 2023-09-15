@@ -113,7 +113,7 @@
 
 ```bash
   email: tuan.phan@asnet.com.vn
-  password: 12345678
+  password: Abc@123456
 ```
 
 ## Author
