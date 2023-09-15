@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "tuan.phan@asnet.com.vn",
-      "password": "$2a$10$YufiL3YV.F.7VUREA11JQuaBq3aWGEPXhm1fJ8dsrszthZUy7skAi",
+      "password": "$2a$10$uv9hxbRkg7n.MqhxIPYGU.34G0WnUFvAPp8ghb8fZehImoY/dIoj.",
       "fullName": "Thomas Smith",
       "avatar": "./images/avatar-default.webp",
       "role": "Project Manager",
