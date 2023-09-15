@@ -98,6 +98,22 @@
   height: 17px;
 }
 
+.course-icon {
+  width: 20px;
+  height: 16px;
+}
+
+.payment-icon,
+.setting-icon {
+  width: 15px;
+  height: 17px;
+}
+
+.report-icon {
+  width: 13px;
+  height: 17px;
+}
+
 .sidebar-logout {
   background: transparent;
   font-size: var(--font-size-xl);
