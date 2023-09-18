@@ -31,16 +31,25 @@ class ProjectDetailController {
    * @throws {Error} If there's an error fetching the data, it navigates to the dashboard page.
    */
   private showProjectDetail = async () => {
-    if (!this.projectId) return;
+    if (!this.projectId) {
+      return this.navigateToNotFound();
+    }
 
     try {
       const data = await this.model.getProjectDetail(this.projectId);
 
       this.view.renderProjectDetail(data);
     } catch (error) {
-      navigatePage(ROUTES.DASHBOARD);
+      this.navigateToNotFound();
     }
   };
+
+  /**
+   * Navigates to the "Not Found" page.
+   */
+  private navigateToNotFound() {
+    navigatePage(ROUTES.NOT_FOUND, true);
+  }
 }
 
 export default ProjectDetailController;
