@@ -32,7 +32,7 @@ class ProjectDetailController {
    */
   private showProjectDetail = async () => {
     if (!this.projectId) {
-      return this.navigateToNotFound();
+      return navigatePage(ROUTES.NOT_FOUND, true);
     }
 
     try {
@@ -40,16 +40,9 @@ class ProjectDetailController {
 
       this.view.renderProjectDetail(data);
     } catch (error) {
-      this.navigateToNotFound();
+      navigatePage(ROUTES.NOT_FOUND, true);
     }
   };
-
-  /**
-   * Navigates to the "Not Found" page.
-   */
-  private navigateToNotFound() {
-    navigatePage(ROUTES.NOT_FOUND, true);
-  }
 }
 
 export default ProjectDetailController;

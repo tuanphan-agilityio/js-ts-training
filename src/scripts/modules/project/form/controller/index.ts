@@ -100,17 +100,10 @@ class ProjectFormController {
         const project = await this.model.getProject(projectId);
         this.view.renderEditProjectForm(project);
       } catch (error) {
-        this.navigateToNotFound();
+        navigatePage(ROUTES.NOT_FOUND, true);
       }
     }
   };
-
-  /**
-   * Navigates to the "Not Found" page.
-   */
-  private navigateToNotFound() {
-    navigatePage(ROUTES.NOT_FOUND, true);
-  }
 }
 
 export default ProjectFormController;
