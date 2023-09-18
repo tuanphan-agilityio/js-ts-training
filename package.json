@@ -7,7 +7,8 @@
   "scripts": {
     "prepare": "husky install",
     "start": "rm -rf dist && rm -rf .parcel-cache && parcel src/pages/*.html",
-    "start:server": "json-server server/db.json -m ./node_modules/json-server-auth"
+    "start:server": "json-server server/db.json -m ./node_modules/json-server-auth",
+    "build": "rm -rf dist && rm -rf .parcel-cache && parcel build src/pages/*.html --no-cache --no-source-maps --dist-dir dist"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
