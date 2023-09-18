@@ -7,7 +7,7 @@
 
 ## Timeline
 
-- 14 days
+- 15 days
 
 ## Team size
 
