@@ -43,7 +43,7 @@ const generateProjectTableTemplate = (projectList: ProjectItem[]): string =>
                 <td class="table-data">
                   <img
                     class="project-logo-img"
-                    src="${logo || './images/avatar-default.webp'}"
+                    src="${logo || './images/project-default.webp'}"
                     alt="Project logo"
                   />
                 </td>

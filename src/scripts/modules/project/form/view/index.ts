@@ -1,3 +1,4 @@
+import { FORM_TITLES } from '@/constants';
 import { convertFileToBase64, extractParamFromUrlByKey } from '@/helpers';
 import { Participant, ProjectFormInputs, PROJECT_STATUS, Project } from '@/types';
 import { getElementById } from '@/utils';
@@ -15,6 +16,7 @@ class ProjectFormView {
   private projectForm: HTMLFormElement;
   private cancelButtonElement: HTMLButtonElement;
   private imgPreviewElement: HTMLInputElement;
+  private formTitleElement: HTMLParagraphElement;
   private projectId: string | null;
 
   constructor() {
@@ -29,11 +31,13 @@ class ProjectFormView {
     this.endDateInput = getElementById('end-date');
     this.descriptionTextarea = getElementById('description');
     this.imgPreviewElement = getElementById('project-logo-preview');
+    this.formTitleElement = getElementById('project-form-title');
 
     this.projectForm = getElementById('project-form');
     this.cancelButtonElement = getElementById('btn-project-cancel');
     this.projectId = extractParamFromUrlByKey('id');
     this.handleImagePreview();
+    this.showFormTitle();
   }
 
   /**
@@ -201,6 +205,17 @@ class ProjectFormView {
         }
       });
     }
+  };
+
+  /**
+   * Updates the form title based on the presence of a project ID.
+   * If a project ID is present, it sets the form title to "Edit Project".
+   * Otherwise, it sets the form title to "Create Project".
+   */
+  private showFormTitle = () => {
+    this.formTitleElement.textContent = this.projectId
+      ? FORM_TITLES.PROJECT_FORM_EDIT
+      : FORM_TITLES.PROJECT_FORM_CREATE;
   };
 }
 

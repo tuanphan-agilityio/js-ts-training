@@ -5,3 +5,4 @@ export * from './service';
 export * from './endpoint';
 export * from './route';
 export * from './format';
+export * from './title';

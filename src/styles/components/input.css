@@ -18,6 +18,10 @@
   color: var(--color-soft-gray);
 }
 
+.form-input-required {
+  color: var(--color-error);
+}
+
 .form-label {
   font-size: 14px;
   font-weight: var(--font-weight-medium);
