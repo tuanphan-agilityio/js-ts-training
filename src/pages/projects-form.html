@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/main.css" />
     <meta name="description" content="Project management" />
     <title>Project</title>
+    <link rel="icon" href="../assets/icons/favicon.svg" />
   </head>
   <body>
     <div id="site-main" class="content-wrapper">
@@ -25,11 +26,13 @@
 
         <div class="container project-form-container">
           <form id="project-form" class="project-form" action="/">
-            <h2 class="project-form-title">Add new project</h2>
+            <h2 id="project-form-title" class="project-form-title"></h2>
 
             <!-- Name -->
             <div class="form-control-project">
-              <label class="form-label" for="name">Name</label>
+              <label class="form-label" for="name">
+                Name <span class="form-input-required">*</span>
+              </label>
               <input
                 class="form-input form-input-project"
                 id="name"
@@ -42,7 +45,9 @@
 
             <!-- Client -->
             <div class="form-control-project">
-              <label class="form-label" for="client">Client</label>
+              <label class="form-label" for="client">
+                Client <span class="form-input-required">*</span>
+              </label>
               <input
                 class="form-input form-input-project"
                 id="client"
@@ -55,7 +60,9 @@
 
             <!-- Project manager -->
             <div class="form-control-project">
-              <label class="form-label" for="project-manager-id">Project Manager</label>
+              <label class="form-label" for="project-manager-id">
+                Project Manager <span class="form-input-required">*</span>
+              </label>
               <select
                 id="project-manager-id"
                 name="project-manager-id"
@@ -80,7 +87,9 @@
 
             <!-- Status -->
             <div class="form-control-project">
-              <label class="form-label" for="status">Status</label>
+              <label class="form-label" for="status">
+                Status <span class="form-input-required">*</span>
+              </label>
               <select id="status" name="status" class="form-input form-input-project">
                 <option value="" disabled selected>Choose the status</option>
                 <option value="in-progress">In progress</option>
@@ -92,13 +101,15 @@
 
             <!-- Start date -->
             <div class="form-control-project">
-              <label class="form-label" for="start-date">Start Date</label>
+              <label class="form-label" for="start-date">
+                Start Date <span class="form-input-required">*</span>
+              </label>
               <input
                 class="form-input form-input-project"
                 id="start-date"
                 name="start-date"
                 type="date"
-                placeholder="Start Date*"
+                placeholder="Start Date"
               />
               <p class="input-error" id="start-date-error"></p>
             </div>
